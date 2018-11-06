@@ -39,7 +39,7 @@ export class GamePage implements OnInit {
   muzeums: Array<object> = [];
   conntype: string = "";
   waiters: number = 0;
-  proba: string = "";
+  proba: string = "nincsfájl";
 
   constructor(
     public navCtrl: NavController,
@@ -118,6 +118,7 @@ export class GamePage implements OnInit {
   checkUser() {
     this.file.readAsText(this.baseURL, "userData.txt").then(g => {
       this.userData = JSON.parse(g);
+      
       if (this.userData.userId != 0) {
         this.setUid(this.userData.userId);
         this.myapp.login=1
